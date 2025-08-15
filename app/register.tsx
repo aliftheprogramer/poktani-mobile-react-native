@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function RegisterScreen() {
     const [name, setName] = useState('');
@@ -11,84 +11,84 @@ export default function RegisterScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* Kita akan menggunakan ScrollView agar bisa di-scroll jika tidak muat */}
-            {/* Tapi untuk sekarang, kita biarkan dulu agar fokus pada input */}
-            <Text style={styles.title}>Buat Akun Baru</Text>
-            <Text style={styles.subtitle}>Silahkan isi data diri Anda</Text>
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
+                <Text style={styles.title}>Buat Akun Baru</Text>
+                <Text style={styles.subtitle}>Silahkan isi data diri Anda</Text>
 
-            {/* Name Input */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Nama Lengkap</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Masukkan nama lengkap Anda"
-                    value={name}
-                    onChangeText={setName}
-                />
-            </View>
+                {/* Name Input */}
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Nama Lengkap</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Masukkan nama lengkap Anda"
+                        value={name}
+                        onChangeText={setName}
+                    />
+                </View>
 
-            {/* Email Input */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Email</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="contoh@email.com"
-                    keyboardType="email-address"
-                    value={email}
-                    onChangeText={setEmail}
-                />
-            </View>
+                {/* Email Input */}
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Email</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="contoh@email.com"
+                        keyboardType="email-address"
+                        value={email}
+                        onChangeText={setEmail}
+                    />
+                </View>
 
-            {/* Phone Number Input */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Nomor Handphone</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="08123456789"
-                    keyboardType="phone-pad"
-                    value={phoneNumber}
-                    onChangeText={setPhoneNumber}
-                />
-            </View>
+                {/* Phone Number Input */}
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Nomor Handphone</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="08123456789"
+                        keyboardType="phone-pad"
+                        value={phoneNumber}
+                        onChangeText={setPhoneNumber}
+                    />
+                </View>
 
-            {/* Address Input */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Alamat Lengkap</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Masukkan alamat lengkap Anda"
-                    value={address}
-                    onChangeText={setAddress}
-                />
-            </View>
+                {/* Address Input */}
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Alamat Lengkap</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Masukkan alamat lengkap Anda"
+                        value={address}
+                        onChangeText={setAddress}
+                    />
+                </View>
 
-            {/* Password Input */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Kata Sandi</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Buat kata sandi Anda"
-                    secureTextEntry
-                    value={password}
-                    onChangeText={setPassword}
-                />
-            </View>
+                {/* Password Input */}
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Kata Sandi</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Buat kata sandi Anda"
+                        secureTextEntry
+                        value={password}
+                        onChangeText={setPassword}
+                    />
+                </View>
 
-            {/* Password Confirmation Input */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Konfirmasi Kata Sandi</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Ketik ulang kata sandi Anda"
-                    secureTextEntry
-                    value={passwordConfirmation}
-                    onChangeText={setPasswordConfirmation}
-                />
-            </View>
+                {/* Password Confirmation Input */}
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Konfirmasi Kata Sandi</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Ketik ulang kata sandi Anda"
+                        secureTextEntry
+                        value={passwordConfirmation}
+                        onChangeText={setPasswordConfirmation}
+                    />
+                </View>
 
-            <Pressable style={styles.button}>
-                <Text style={styles.buttonText}>Daftar</Text>
-            </Pressable>
+                <Pressable style={styles.button}>
+                    <Text style={styles.buttonText}>Daftar</Text>
+                </Pressable>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -97,6 +97,9 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 24,
         backgroundColor: '#FFFFFF',
+    },
+    scrollContainer: {
+        padding: 24,
     },
     title: {
         fontSize: 28,

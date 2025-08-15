@@ -1,13 +1,16 @@
+import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export const OnboardingFooter = () => {
+
+    const router = useRouter();
     return (
         <View style={styles.container}>
-            <Pressable style={[styles.button, styles.buttonPrimary]}>
+            <Pressable style={[styles.button, styles.buttonPrimary]} onPress={() => router.push('/register')}>
                 <Text style={[styles.buttonText, styles.buttonTextPrimary]}> Daftar</Text>
             </Pressable>
 
-            <Pressable style={[styles.button, styles.buttonSecondary]}>
+            <Pressable style={[styles.button, styles.buttonSecondary]} onPress={() => router.push('/login')}>
                 <Text style={[styles.buttonText, styles.buttonTextSecondary]}> Masuk</Text>
             </Pressable>
         </View>
